@@ -9,7 +9,4 @@ public class PartitionArrayMinSum {
             arr[i] = sc.nextInt();
         }
     }
-//    static int solve(int[] arr){
-//        if()
-//    }
 }

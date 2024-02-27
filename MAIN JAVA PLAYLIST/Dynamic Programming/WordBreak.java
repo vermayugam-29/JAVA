@@ -6,12 +6,12 @@ public class WordBreak {
     static Boolean[] memo;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String s = "yugam";//sc.next();
-//        int n = sc.nextInt();
-        List<String> list = List.of("yuga","yug","ver","am","ma");//new ArrayList<>();
-//        for (int i = 0; i < n; i++) {
-//            list.add(sc.next());
-//        }
+        String s = sc.next();
+        int n = sc.nextInt();
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            list.add(sc.next());
+        }
         memo = new Boolean[s.length()+1];
         boolean ans = solve(s,0,list);
     }

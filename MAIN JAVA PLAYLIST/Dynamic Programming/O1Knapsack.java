@@ -20,7 +20,7 @@ public class O1Knapsack {
             Arrays.fill(memo[i], -1);
         }
         int ans = memoization(weight,value,maxCap,0);
-        int ans2 = topDown(weight,value,maxCap);
+        int ans2 = BottomUp(weight,value,maxCap);
         System.out.println(ans2);
     }
     static int recursive(int[] weight,int[] profit,int maxCap,int i){
@@ -51,7 +51,7 @@ public class O1Knapsack {
 
         return memo[i][maxCap] = Math.max(include,exclude);
     }
-    static int topDown(int[] wt,int[] val,int W){
+    static int BottomUp(int[] wt,int[] val,int W){
         int[][] dp = new int[wt.length+1][W+1];
         fillDp(dp);
 

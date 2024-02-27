@@ -11,7 +11,7 @@ public class SubsetSum {
         }
         boolean ans1 = memoization(arr, 0, sum) == 1;
         System.out.println(ans1);
-        boolean ans2 = topDown(arr,sum);
+        boolean ans2 = BottomUp(arr,sum);
         System.out.println(ans2);
     }
     static int memoization(int[] arr,int i,int sum){
@@ -23,7 +23,7 @@ public class SubsetSum {
         return memo[i][sum] = memoization(arr,i+1,sum-arr[i]) == 1 ||
                                 memoization(arr,i+1,sum) == 1 ? 1 : 0;
     }
-    static boolean topDown(int[] arr,int sum){
+    static boolean BottomUp(int[] arr,int sum){
         boolean[][] dp = new boolean[arr.length+1][sum+1];
         fillDP(dp);
 
