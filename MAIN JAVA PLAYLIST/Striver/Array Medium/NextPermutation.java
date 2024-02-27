@@ -1,5 +1,4 @@
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 public class NextPermutation {
     public static void main(String[] args) {
@@ -9,28 +8,43 @@ public class NextPermutation {
         for (int k = 0; k < arr.length; k++) {
             arr[k] = sc.nextInt();
         }
-        boolean checking = isSorted(arr);
-        if(checking == true) swap(arr,n-2,n-1);
-        else swap(arr,0,n-1);
-
+        nextPermutation(arr);
         System.out.println(Arrays.toString(arr));
-        // System.out.println(checking);
     }
-    public static boolean isSorted(int[] arr){
-        boolean check = false;
-        for(int i=0;i<arr.length-1;i++){
-            if(arr[i]<arr[i+1]){
-                check = true;
-            }
-            else{
-                check=false;
+    private static void nextPermutation(int[] nums) {
+        //first of all find the breakpoint
+        int breakPoint = -1;
+        for(int i=nums.length-2;i>=0;i--){
+            if(nums[i] < nums[i+1]){
+                breakPoint = i;
+                break;
             }
         }
-        return check;
+        if(breakPoint == -1){
+            reverse(nums,0,nums.length-1);
+            return;
+        }
+
+        for(int i=nums.length-1;i>=breakPoint;i--){
+            if(nums[i] > nums[breakPoint]){
+                swap(nums,breakPoint,i);
+                break;
+            }
+        }
+        reverse(nums,breakPoint+1,nums.length-1);
     }
-    public static void swap(int[] arr,int a,int b){
-        int temp=arr[a];
-        arr[a] = arr[b];
-        arr[b] = temp;
+    private static void swap(int[] arr,int s,int e){
+        int temp= arr[s];
+        arr[s] = arr[e];
+        arr[e] = temp;
+    }
+    private static void reverse(int[] arr,int i,int j){
+        while(i < j){
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+            j--;
+        }
     }
 }
