@@ -79,6 +79,8 @@ class TreeNode {
           System.out.println(s + " " + node.value);
           display(node.left,"Left Node of " + node.value +" :");
           display(node.right,"Right node of " + node.value +" :");
-
+      }
+      public void display(TreeNode node){
+          display(node,"Root Node :" );
       }
  }
