@@ -5,8 +5,8 @@ public class SubsequenceInList {
     public static void main(String[] args) {
         String up = "abc";
         ArrayList<String> list = new ArrayList<>();
-        subseq("",up,list);
-        System.out.println(list);
+//        subseq("",up,list);
+//        System.out.println(list);
         System.out.println(subseq2("",up));
     }
     //approach 1 :- passing a list in argument
@@ -34,7 +34,10 @@ public class SubsequenceInList {
         ArrayList<String> left = subseq2(p+ch,up.substring(1));
         ArrayList<String> right = subseq2(p,up.substring(1));
 
+        System.out.print(left + " before");
+
         left.addAll(right);
+        System.out.println(left + " after");
         return left;
     }
 }
