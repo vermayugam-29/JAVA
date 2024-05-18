@@ -17,21 +17,18 @@ public class Ques11 {
 
         System.out.println(solve(arr,bricks,ladder));
     }
-    static int solve(int[] arr,int bricks,int ladder){
-        for (int i = 0; i < arr.length-1; i++) {
-            if(arr[i] < arr[i+1]){
-                if(bricks > 0){
-                    bricks = bricks - (arr[i+1] - arr[i]);
-
-                }
-                else if(ladder > 0){
-                    ladder = ladder -1;
-                }
-                else{
-                    return i;
+    static int solve(int[] nums,int bricks,int ladders){
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        for(int i=1;i<nums.length;i++){
+            if(nums[i-1] < nums[i]){
+                int diff = nums[i] - nums[i-1];
+                pq.add(diff);
+                if(pq.size() > ladders){
+                    bricks -= pq.poll();
                 }
             }
+            if(bricks < 0) return i-1;
         }
-        return arr.length-1;
+        return nums.length-1;
     }
 }
