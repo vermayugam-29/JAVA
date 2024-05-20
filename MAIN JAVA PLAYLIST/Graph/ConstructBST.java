@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Rishita {
+public class ConstructBST {
     public static void main(String[] args) {
         int[] in = {9,3,15,20,7};//{4,2,5,1,3,6};
         int[] pre = {3,9,20,15,7};//{1,2,4,5,3,6};
