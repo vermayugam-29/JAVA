@@ -12,6 +12,8 @@ public class Main {
         System.out.println(d1);
 
         Singleton obj = Singleton.getInstance();
+
+//        Worker dummy = new Human(20,0,"Yugam");
     }
     void call () {
         greet();

@@ -3,6 +3,8 @@ class Human {
     String name;
     static int population;
 
+    Human() {}
+
     Human (int age, int salary, String name) {
         this.age = age;
         this.salary = salary;
